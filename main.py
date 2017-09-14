@@ -1,8 +1,8 @@
+#!/usr/bin/python
 
-def main():{
+from User import *
 
-    user = User()
-
-};
+def main():
+    pass
 
 main()
