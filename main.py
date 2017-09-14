@@ -1,8 +1,7 @@
-def main():{
+#!/usr/bin/python
 
-};
-
-
+def main():
+    pass
 
 class User:
     def __init__(self,username,id,password,lists,order,payment_info):
@@ -13,37 +12,29 @@ class User:
         self.order = order
         self.payment_info = payment_info
 
-    def login(self,username,id,password):{
+    def login(self,username,id,password):
+        pass
 
-    }
+    def logout(self):
+        pass
 
-    def logout(self):{
+    def addToCart(self,lists):
+        pass
 
-    }
+    def removeFromCart(self,lists):
+        pass
 
-    def addToCart(self,lists):{
+    def confirmPurchase(self,order):
+        pass
 
-    }
+    def placeOrder(self,lists):
+        pass
 
-    def removeFromCart(self,lists):{
+    def viewPurchaseHistory(self):
+        pass
 
-    }
-
-    def confirmPurchase(self,order):{
-
-    }
-
-    def placeOrder(self,lists):{
-
-    }
-
-    def viewPurchaseHistory(self):{
-
-    }
-
-    def addPaymentMethod(self,payment_info):{
-
-    }
+    def addPaymentMethod(self,payment_info):
+        pass
 
 
 main()
