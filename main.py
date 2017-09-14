@@ -1,5 +1,7 @@
 def main():{
 
+    user = User()
+
 };
 
 
@@ -13,21 +15,21 @@ class User:
         self.order = order
         self.payment_info = payment_info
 
-    def login(self,username,id,password):{
+    def login(self,username,id,password):
 
-    }
 
-    def logout(self):{
 
-    }
+    def logout(self):
 
-    def addToCart(self,lists):{
 
-    }
+
+    def addToCart(self,lists):
+
+
 
     def removeFromCart(self,lists):{
 
-    }
+
 
     def confirmPurchase(self,order):{
 
