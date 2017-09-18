@@ -3,6 +3,6 @@
 from User import *
 
 def main():
-    pass
+    print("This is a test")
 
 main()

@@ -1,34 +1,53 @@
-#Will be done by Jahrell
+#!/usr/bin/python
 
-class User:
-    def __init__(self,username,id,password,lists,order,payment_info):
-        self.username = username
-        self.id = id
-        self.width = password
-        self.list = lists
-        self.order = order
-        self.payment_info = payment_info
+class Person:
+    def __init__(self, sentName, sentAddress):
+        self.name = sentName
+        self.address = sentAddress
 
-    def login(self,username,id,password):
+    def setName(self, newName):
+        self.name = newName
+
+    def getName(self):
+        return self.name
+
+    def setAddress(self, newAddress):
+        self.address = newAddress
+
+    def getAddress(self):
+        return self.address
+
+
+class User(Person):
+    def __init__(self, sentName, sentAddress, sentUsername, sentID, sentPassword, sentLists, sentOrder, sentPaymentInfo):
+        Person.__init__(self, sentName, sentAddress)
+        self.username = sentUsername
+        self.id = sentID
+        self.width = sentPassword
+        self.list = sentLists
+        self.order = sentOrder
+        self.payment_info = sentPaymentInfo
+
+    def login(self, sentUsername, sentID, sentPassword):
         pass
 
     def logout(self):
         pass
 
-    def addToCart(self,lists):
+    def addToCart(self, lists):
         pass
 
-    def removeFromCart(self,lists):
+    def removeFromCart(self, lists):
         pass
 
-    def confirmPurchase(self,order):
+    def confirmPurchase(self, order):
         pass
 
-    def placeOrder(self,lists):
+    def placeOrder(self, lists):
         pass
 
     def viewPurchaseHistory(self):
         pass
 
-    def addPaymentMethod(self,payment_info):
+    def addPaymentMethod(self, payment_info):
         pass
