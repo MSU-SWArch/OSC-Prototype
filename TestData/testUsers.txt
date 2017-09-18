@@ -1,0 +1,2 @@
+sentName, sentAddress, sentUsername, sentID, sentPassword, sentCart, sentOrderIDs, sentPaymentInfo
+John Smith\ 1234 Street Rd Jackson, MS\ johnSmith89\ 0001\ pass1234\ \ \ 

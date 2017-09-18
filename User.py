@@ -19,19 +19,21 @@ class Person:
 
 
 class User(Person):
-    def __init__(self, sentName, sentAddress, sentUsername, sentID, sentPassword, sentLists, sentOrder, sentPaymentInfo):
+    def __init__(self, sentName, sentAddress, sentUsername, sentID, sentPassword, sentCartID, sentOrderIDs, sentPaymentInfo):
         Person.__init__(self, sentName, sentAddress)
         self.username = sentUsername
-        self.id = sentID
-        self.width = sentPassword
-        self.list = sentLists
-        self.order = sentOrder
-        self.payment_info = sentPaymentInfo
+        self.userID = sentID
+        self.password = sentPassword
+        self.cartID = sentCartID
+        self.orderList = sentOrderIDs.split(', ')
+        self.paymentInfo = sentPaymentInfo
 
     def login(self, sentUsername, sentID, sentPassword):
+        # Redundent with DBAccessor.verifyLogin()
         pass
 
     def logout(self):
+        # Redundent if logging is managed by DBAccessor
         pass
 
     def addToCart(self, lists):
