@@ -13,14 +13,23 @@ class DBAccessor():
 		self.orderFileLoc = sentOrderFileLoc
 
 		self.itemList = []
-		self.userList = []
+		self.userDict = {}
 		self.cartList = []
 		self.orderList = []
 
+		self.curUser = ""
+
 	def VerifyLogin(self, sentUser, sentPass):
 		for curUser in self.userList:
-			if curUser.
+			#if curUser.
+			pass
 		return False
+
+	def AddUser(self, sentUsername, sentPassword):
+		pass
+
+	def GetOrderHistory(self, sentOrderID):
+		pass
 
 	def GetAllData(self):
 		GetItemData(self)
@@ -29,17 +38,19 @@ class DBAccessor():
 		GetOrderData(self)
 
 	def GetItemData(self):
+		del self.itemList[:]
 		self.itemFile = open(self.itemFileLoc, 'r').read().split('\n')
-		i = 0
 		for curLine in self.itemFile:
-			lineList = curLine.split('\ ')
-			userList[i] = User(lineList[0], lineList[1], lineList[2], lineList[3], lineList[4], lineList[5], lineList[6], lineList[7])
+			lineList = curLine.split('\\')
+			self.itemList.append(Household(lineList[0], lineList[1], lineList[2], lineList[3], lineList[4], lineList[5]))
 			
-
 	def GetUserData(self):
-		self.userFile = open(self.userFileLoc, 'r')
-
-		self.userFile.close()
+		self.userDict.clear()
+		self.itemFile = open(self.userFileLoc, 'r').read().split('\n')
+		for curLine in self.itemFile:
+			lineList = curLine.split('\\')
+			self.userDict[str(lineList[2])] = User(lineList[0], lineList[1], lineList[2], lineList[3], lineList[4], lineList[5], lineList[6], lineList[7])
+			#print("Test User Import:\nUsers imported:\n\n"self.userDict[str(lineList[2])])
 
 	def GetCartData(self):
 		self.cartFile = open(self.cartFileLoc, 'r')

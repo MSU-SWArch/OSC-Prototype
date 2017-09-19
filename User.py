@@ -28,6 +28,9 @@ class User(Person):
         self.orderList = sentOrderIDs.split(', ')
         self.paymentInfo = sentPaymentInfo
 
+    def __str__(self):
+        return str("User:\nName: " + str(self.name) + "\nAddr: " + str(self.address) + "\nUName: " + str(self.username) + "\nID: " + str(self.userID) + "\nPass: " + str(self.password) + "\nCartID: " + str(self.cartID) + "\nOrderIDs: " + str(self.orderList) + "\nPayment: " + str(self.paymentInfo) + "\n\n")
+
     def login(self, sentUsername, sentID, sentPassword):
         # Redundent with DBAccessor.verifyLogin()
         pass
