@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
-from User import *
-from Item import *
-from Order import *
-from Cart import *
+from model.User import *
+from model.Item import *
+from model.Order import *
+from model.Cart import *
 
 class DBAccessor():
 	def __init__(self, sentItemFileLoc, sentUserFileLoc, sentCartFileLoc, sentOrderFileLoc):
