@@ -4,7 +4,7 @@ from User import *
 from Item import *
 from Order import *
 from Cart import *
-from TestDBAccessor import *
+from utility/TestDBAccessor import *
 
 def main():
 	storeRunning = True
@@ -20,7 +20,7 @@ def main():
 			print("  1. Log in")
 		else:
 			print("  1. Log out")
-		print("  2. View Items")
+			print("  2. View Items")
 		
 
 
