@@ -1,8 +1,8 @@
 #!/usr/bin/python
 
 class Cart:
-	def __init__(self, items):
-		self.items = items
+	def __init__(self, sentItems):
+		self.items = sentItems
 		self.cartId = cartId
 
 	def addItems(newitems):

@@ -27,7 +27,7 @@ class User(Person):
         self.cartID = sentCartID
         self.orderList = sentOrderIDs.split(', ')
         self.paymentInfo = sentPaymentInfo
-        self.paymentMethod = paymentMethod
+        #self.paymentMethod = paymentMethod
 
     def __str__(self):
         return str("User:\nName: " + str(self.name) + "\nAddr: " + str(self.address) + "\nUName: " + str(self.username) + "\nID: " + str(self.userID) + "\nPass: " + str(self.password) + "\nCartID: " + str(self.cartID) + "\nOrderIDs: " + str(self.orderList) + "\nPayment: " + str(self.paymentInfo) + "\n\n")
@@ -53,7 +53,7 @@ class User(Person):
             return false
         pass
 
-    def placeOrder(self, self.):
+    def placeOrder(self):
 
         pass
 
@@ -61,7 +61,7 @@ class User(Person):
         pass
 
     def addPaymentMethod(self, payment_info, paymentMethod): #paymentMethod is an array, and it'll store all of different payment methods
-        self.payment_info.append(paymentMethod)
+        self.paymentInfo.append(paymentMethod)
         return paymentMethod
 
         pass

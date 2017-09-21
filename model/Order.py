@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
 import datetime
-import User
+import model.User
 
-class Order(User):
+class Order():
 	def __init__(self,items, itemId, sentID):
 		self.transactionDate = now.day
 		self.items = items
@@ -17,5 +17,3 @@ class Order(User):
 
 	def getItemId(self, itemId):
 		return self.itemId
-
-	pass
