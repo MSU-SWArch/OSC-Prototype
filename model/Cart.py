@@ -1,9 +1,11 @@
 #!/usr/bin/python
+import rand
 
 class Cart:
-	def __init__(self, sentItems):
-		self.items = sentItems
-		self.cartId = cartId
+	def __init__(self, items, cartId,):
+		self.items = items
+		self.cartId = rand()e
+
 
 	def addItems(newitems):
 		for each in newitems:
@@ -25,7 +27,7 @@ class Cart:
 				
 		return true
 
-	def getTotalQuantity():
+	def getTotalQuantity(self):
 		numItems = 0
 
 		for each in self.items:
@@ -33,8 +35,10 @@ class Cart:
 
 		return numItems
 
-	def getTotalPrice(items):
+	def getTotalPrice(items, price):
+		for each in items:
+			for each in price:
+				price += price
+		return price
 
-		return
-
-
+return
