@@ -1,4 +1,5 @@
 #!/usr/bin/python
+from model.Order import *
 
 class Person:
     def __init__(self, sentName, sentAddress):
@@ -53,11 +54,16 @@ class User(Person):
             return false
         pass
 
-    def placeOrder(self):
+    def placeOrder(self, items, itemId, sentID):
+        orderPlace = Order(sentID)
+        orderPlace.setItem(items)
+        orderPlace.setDate()
+        orderPlace.setItemId(itemId)
 
         pass
 
     def viewPurchaseHistory(self):
+        viewHistory=TestDBAccessor
         pass
 
     def addPaymentMethod(self, payment_info, paymentMethod): #paymentMethod is an array, and it'll store all of different payment methods
