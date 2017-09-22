@@ -1,10 +1,10 @@
 #!/usr/bin/python
-import rand
+#import rand
 
 class Cart:
 	def __init__(self, items, cartId,):
 		self.items = items
-		self.cartId = rand()e
+		self.cartId = rand()
 
 
 	def addItems(newitems):
@@ -40,5 +40,3 @@ class Cart:
 			for each in price:
 				price += price
 		return price
-
-return

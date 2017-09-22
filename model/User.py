@@ -31,7 +31,14 @@ class User(Person):
         #self.paymentMethod = paymentMethod
 
     def __str__(self):
-        return str("User:\nName: " + str(self.name) + "\nAddr: " + str(self.address) + "\nUName: " + str(self.username) + "\nID: " + str(self.userID) + "\nPass: " + str(self.password) + "\nCartID: " + str(self.cartID) + "\nOrderIDs: " + str(self.orderList) + "\nPayment: " + str(self.paymentInfo) + "\n\n")
+        tmpOrderStr = ""
+        tmpFirstLoop = True
+        for curOrder in self.orderList:
+            if (not tmpFirstLoop):
+                tmpOrderStr += ", "
+            tmpOrderStr += curOrder
+
+        return str(str(self.name) + "\\" + str(self.address) + "\\" + str(self.username) + "\\" + str(self.userID) + "\\" + str(self.password) + "\\" + str(self.cartID) + "\\" + str(tmpOrderStr) + "\\" + str(self.paymentInfo))
 
     def login(self, sentUsername, sentID, sentPassword):
         # Redundent with DBAccessor.verifyLogin()

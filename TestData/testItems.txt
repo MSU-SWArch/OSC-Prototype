@@ -1,0 +1,5 @@
+Household\Alarm Clock\0001\14.99\50\Alarm that uses Justin Beiber's "Baby" to wake you up to agony every morning.\Alarm
+Toy\Truck Toy\0002\25.99\12\A giant, yellow toy truck.\Toy Vehicle
+Book\Ubik\0003\12.99\4\"A deeply unsettling existential horror story, a nightmare you'll never be sure you've woken up from"\SciFi\978-0-575-07921-2\Philip K. Dick
+Electronic\iPod\0004\199.99\20\MP3 Player made by Apple\MP3 Player
+Clothes\Pink Shirt\0005\9.99\20\A pink shirt with stripes\Female\Shirts

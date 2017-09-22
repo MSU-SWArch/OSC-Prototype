@@ -41,20 +41,32 @@ class DBAccessor():
 		del self.itemList[:]
 		self.itemFile = open(self.itemFileLoc, 'r').read().split('\n')
 
-		if (self.itemFile[0] != ''):
-			for curLine in self.itemFile:
+		for curLine in self.itemFile:
+			if (curLine != ""):
 				lineList = curLine.split('\\')
-				self.itemList.append(Household(lineList[0], lineList[1], lineList[2], lineList[3], lineList[4], lineList[5]))
+				if (lineList[0] == "Household"):
+					self.itemList.append(Household(lineList[1], lineList[2], lineList[3], lineList[4], lineList[5], lineList[6]))
+				elif (lineList[0] == "Book"):
+					self.itemList.append(Book(lineList[1], lineList[2], lineList[3], lineList[4], lineList[5], lineList[6], lineList[7], lineList[8]))
+				elif (lineList[0] == "Toy"):
+					self.itemList.append(Toy(lineList[1], lineList[2], lineList[3], lineList[4], lineList[5], lineList[6]))
+				elif (lineList[0] == "Electronic"):
+					self.itemList.append(Electronic(lineList[1], lineList[2], lineList[3], lineList[4], lineList[5], lineList[6]))
+				elif (lineList[0] == "Clothes"):
+					self.itemList.append(Clothes(lineList[1], lineList[2], lineList[3], lineList[4], lineList[5], lineList[6], lineList[7]))
+				else:
+					print("ERROR: Item type not known")
+
+		print("Loaded items:", self.itemList)
 			
 	def LoadUserData(self):
 		self.userDict.clear()
 
 		self.userFile = open(self.userFileLoc, 'r').read().split('\n')
-		if (self.userFile[0] != ''):
-			for curLine in self.itemFile:
+		for curLine in self.userFile:
+			if (curLine != ""):
 				lineList = curLine.split('\\')
 				self.userDict[str(lineList[2])] = User(lineList[0], lineList[1], lineList[2], lineList[3], lineList[4], lineList[5], lineList[6], lineList[7])
-				#print("Test User Import:\nUsers imported:\n\n"self.userDict[str(lineList[2])])
 
 	def LoadCartData(self):
 		self.cartFile = open(self.cartFileLoc, 'r')
@@ -71,10 +83,16 @@ class DBAccessor():
 	def SaveItemData(self):
 		self.itemFile = open(self.itemFileLoc, 'w')
 
+		for curItem in self.itemList:
+			self.itemFile.write(str(curItem) + "\n")
+
 		self.itemFile.close()
 
 	def SaveUserData(self):
 		self.userFile = open(self.userFileLoc, 'w')
+
+		for curKey in self.userDict:
+			self.userFile.write(str(self.userDict[curKey]) + "\n")
 
 		self.userFile.close()
 
