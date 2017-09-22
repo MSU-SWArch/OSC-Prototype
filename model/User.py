@@ -1,5 +1,6 @@
 #!/usr/bin/python
 from model.Order import *
+from model.Cart import *
 
 class Person:
     def __init__(self, sentName, sentAddress):
@@ -49,7 +50,13 @@ class User(Person):
         pass
 
     def addToCart(self, lists):
-        orderList.Cart(s)
+        orderList.Cart()
+        orderList.addItems(lists)
+        pass
+
+    def removeFromCart(self, lists):
+        orderList.Cart()
+        orderList.removeItems(lists)
         pass
 
     #Remove from cart is redundant here since it's already in the Cart class
@@ -62,7 +69,7 @@ class User(Person):
         pass
 
     def placeOrder(self, items, itemId, sentID):
-        orderPlace = Order(sentID)
+        orderPlace = Order()
         orderPlace.setItem(items)
         orderPlace.setDate()
         orderPlace.setItemId(itemId)

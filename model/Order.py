@@ -9,6 +9,12 @@ class Order():
 		self.items = items
 		self.itemId = itemId
 
+	def setItems(self, items):
+		self.items = items
+
+	def setItemId(self, itemId):
+		self.itemId = itemID
+
 	def getItems(self, items):
 		return self.items
 	
