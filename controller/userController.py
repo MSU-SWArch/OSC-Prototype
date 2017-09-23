@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
 class UserController():
-	def Login(sentUsername, sentPass):
+	def PrintCart(sentDBReader):
+		pass
+
+	def AddItemToCart(sentUser, sentItemName, sentQuant):
 		pass
