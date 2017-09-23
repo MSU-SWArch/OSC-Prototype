@@ -1,25 +1,28 @@
 #!/usr/bin/python
 
 import datetime
-import model.User
 
 class Order():
-	def __init__(self, items, itemId, sentID):
-		self.transactionDate = now.day
-		self.items = items
-		self.itemId = itemId
+	def __init__(self, sentOrderID, sentItemList, sentQuantList, sentPriceList, sentDateTime):
+		self.orderID = sentOrderID
+		self.itemList = sentItemList
+		self.itemQuantList = sentQuantList
+		self.priceList = sentPriceList
+		self.transactionDate = sentDateTime
 
-	def setItems(self, items):
-		self.items = items
+	def __str__():
+		tmpItemStr = ""
+		for i in range(0, (len(self.itemList) - 1)):
+			tmpItemStr += (str(self.itemList[i]) + "\t(" + str(self.quantList[i]) + ")\t$" + (self.priceList[i] * self.quantList[i]) + "\n")
+		tmpItemStr += "\n"
 
-	def setItemId(self, itemId):
-		self.itemId = itemID
+		return str("Order ID: " + str(self.orderID) + "Date: " + str(self.transactionDate) + "\nItems:\n" + str(tmpItemStr))
+
+	def setItems(self, sentItemList):
+		self.itemList = sentItemList
 
 	def getItems(self, items):
-		return self.items
+		return self.itemList
 	
 	def getTranDate(self):
 		return self.transactionDate
-
-	def getItemId(self, itemId):
-		return self.itemId
