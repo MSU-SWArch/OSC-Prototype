@@ -21,7 +21,6 @@ class Person:
 
 
 class User(Person):
-<<<<<<< HEAD
 	def __init__(self, sentName, sentAddress, sentUsername, sentID, sentPassword, sentCartID, sentOrderIDs, sentPaymentInfo):
 		Person.__init__(self, sentName, sentAddress)
 		self.username = sentUsername
@@ -81,69 +80,67 @@ class User(Person):
 		return paymentMethod
 
 		pass
-=======
-    def __init__(self, sentName, sentAddress, sentUsername, sentID, sentPassword, sentCartID, sentOrderIDs, sentPaymentInfo):
-        Person.__init__(self, sentName, sentAddress)
-        self.username = sentUsername
-        self.userID = sentID
-        self.password = sentPassword
-        self.cartID = sentCartID
-        self.orderList = sentOrderIDs.split(', ')
-        self.paymentInfo = sentPaymentInfo
-        #self.paymentMethod = paymentMethod
+	def __init__(self, sentName, sentAddress, sentUsername, sentID, sentPassword, sentCartID, sentOrderIDs, sentPaymentInfo):
+		Person.__init__(self, sentName, sentAddress)
+		self.username = sentUsername
+		self.userID = sentID
+		self.password = sentPassword
+		self.cartID = sentCartID
+		self.orderList = sentOrderIDs.split(', ')
+		self.paymentInfo = sentPaymentInfo
+		#self.paymentMethod = paymentMethod
 
-    def __str__(self):
-        tmpOrderStr = ""
-        tmpFirstLoop = True
-        for curOrder in self.orderList:
-            if (not tmpFirstLoop):
-                tmpOrderStr += ", "
-            tmpOrderStr += curOrder
+	def __str__(self):
+		tmpOrderStr = ""
+		tmpFirstLoop = True
+		for curOrder in self.orderList:
+			if (not tmpFirstLoop):
+				tmpOrderStr += ", "
+			tmpOrderStr += curOrder
 
-        return str(str(self.name) + "\\" + str(self.address) + "\\" + str(self.username) + "\\" + str(self.userID) + "\\" + str(self.password) + "\\" + str(self.cartID) + "\\" + str(tmpOrderStr) + "\\" + str(self.paymentInfo))
+		return str(str(self.name) + "\\" + str(self.address) + "\\" + str(self.username) + "\\" + str(self.userID) + "\\" + str(self.password) + "\\" + str(self.cartID) + "\\" + str(tmpOrderStr) + "\\" + str(self.paymentInfo))
 
-    def login(self, sentUsername, sentID, sentPassword):
-        # Redundent with DBAccessor.verifyLogin()
-        pass
+	def login(self, sentUsername, sentID, sentPassword):
+		# Redundent with DBAccessor.verifyLogin()
+		pass
 
-    def logout(self):
-        # Redundent if logging is managed by DBAccessor
-        pass
+	def logout(self):
+		# Redundent if logging is managed by DBAccessor
+		pass
 
-    def addToCart(self, lists):
-        orderList.Cart()
-        orderList.addItems(lists)
-        pass
+	def addToCart(self, lists):
+		orderList.Cart()
+		orderList.addItems(lists)
+		pass
 
-    def removeFromCart(self, lists):
-        orderList.Cart()
-        orderList.removeItems(lists)
-        pass
+	def removeFromCart(self, lists):
+		orderList.Cart()
+		orderList.removeItems(lists)
+		pass
 
-    #Remove from cart is redundant here since it's already in the Cart class
+	#Remove from cart is redundant here since it's already in the Cart class
 
-    def confirmPurchase(self, order):
-        if order == true:
-            return true
-        else:
-            return false
-        pass
+	def confirmPurchase(self, order):
+		if order == true:
+			return true
+		else:
+			return false
+		pass
 
-    def placeOrder(self, items, itemId, sentID):
-        orderPlace = Order()
-        orderPlace.setItem(items)
-        orderPlace.setDate()
-        orderPlace.setItemId(itemId)
+	def placeOrder(self, items, itemId, sentID):
+		orderPlace = Order()
+		orderPlace.setItem(items)
+		orderPlace.setDate()
+		orderPlace.setItemId(itemId)
 
-        pass
+		pass
 
-    def viewPurchaseHistory(self):
-        viewHistory=TestDBAccessor
-        pass
+	def viewPurchaseHistory(self):
+		viewHistory=TestDBAccessor
+		pass
 
-    def addPaymentMethod(self, payment_info, paymentMethod): #paymentMethod is an array, and it'll store all of different payment methods
-        self.paymentInfo.append(paymentMethod)
-        return paymentMethod
+	def addPaymentMethod(self, payment_info, paymentMethod): #paymentMethod is an array, and it'll store all of different payment methods
+		self.paymentInfo.append(paymentMethod)
+		return paymentMethod
 
-        pass
->>>>>>> 60695456b0f818b0d0c578b9928cd195ee7eae25
+		pass
