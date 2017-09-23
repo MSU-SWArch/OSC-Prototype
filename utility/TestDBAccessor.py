@@ -119,12 +119,9 @@ class DBAccessor():
 			self.userDict[self.curUser].paymentInfo = input("Card info: ")
 
 		for curCart in self.cartList:
-			if (str(curCart.cartID) == self.userDict[self.curUser].cartID):
-
-				# newOrder = Order(self.userDict[self.curUser].cartID, tmpItemStr, sentQuantList, sentPriceList, sentDateTime)
-
+			if (str(curCart.cartID) == str(self.userDict[self.curUser].cartID)):
 				self.orderFile = open(sentFileLoc, 'a')
-				self.orderFile.write("ID: " + curCart.cartID + "\n")
+				self.orderFile.write("ID: " + str(curCart.cartID) + "\n")
 				tmpTotPrice = 0.0
 				for i in range(0, len(curCart.itemList)):
 					for curItem in self.itemList:
@@ -135,8 +132,8 @@ class DBAccessor():
 				self.orderFile.write("Total: $" + str(tmpTotPrice) + "\n\n")
 				self.orderFile.close()
 
-			del curCart
-			self.userDict[self.curUser].cartID = ""
+				del curCart
+				self.userDict[self.curUser].cartID = ""
 
 		print("Your order has now been shipped!")
 
