@@ -60,6 +60,18 @@ def main():
 		elif (str(usrInput) == "2"):
 			#Print all items
 			pass
+		elif (str(usrInput) == "3"):
+			AddItem()
+			pass
+		elif (str(usrInput) == "4"):
+			RemoveItem()
+			pass
+		elif (str(usrInput) == "5"):
+			PurchaseView()
+			pass
+		elif (str(usrInput) == "6"):
+			PurchaseHistView()
+			pass
 		elif (str(usrInput) == "7"):
 			storeRunning = False
 		else:
