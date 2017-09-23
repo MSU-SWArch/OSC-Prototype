@@ -1,6 +1,4 @@
 0001\Alarm Clock, Ubik\2, 1
-5074\iPod\1
-180\iPod\1
-1503\iPod\3
-3767\iPod\3
-3405\iPod\3
+2306\iPod\6
+2846\Pink Shirt, iPod\4, 24
+2085\Pink Shirt\2

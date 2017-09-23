@@ -33,15 +33,18 @@ class DBAccessor():
 				cartItemList = cartVars[1].split(", ")
 				cartQuantList = cartVars[2].split(", ")
 				totalPrice = 0.0
-				print("\nItems in cart:")
-				for i in range(0, len(cartItemList)):
-					curItemPrice = 0.0
-					for curItem in self.itemList:
-						if str(curItem.name).upper() == str(cartItemList[i]).upper():
-							curItemPrice = curItem.price
-					totalPrice += (float(curItemPrice) * int(cartQuantList[i]))
-					print(str(cartItemList[i]) + "\t" + cartQuantList[i] + "\t$" + str(float(curItemPrice) * int(cartQuantList[i])))
-				print("Total: $" + str(totalPrice) + "\n")
+				if (str(cartItemList[0]) == "" or str(cartQuantList[0]) == ""):
+					cartFound = False
+				else:
+					print("\nItems in cart:")
+					for i in range(0, len(cartItemList)):
+						curItemPrice = 0.0
+						for curItem in self.itemList:
+							if str(curItem.name).upper() == str(cartItemList[i]).upper():
+								curItemPrice = curItem.price
+						totalPrice += (float(curItemPrice) * int(cartQuantList[i]))
+						print(str(cartItemList[i]) + "\t" + cartQuantList[i] + "\t$" + str(float(curItemPrice) * int(cartQuantList[i])))
+					print("Total: $" + str(totalPrice) + "\n")
 
 		if (not cartFound):
 			print("You don't have anything in your cart!")
@@ -63,32 +66,41 @@ class DBAccessor():
 				else:
 					curItem.quantity = int(curItem.quantity) - int(sentQuant)
 
+		if (sentQuant == 0):
+			print("There are no more of this item! You can't add it to your cart.")
+			return
+
 		cartFound = False
 		for curCart in self.cartList:
 			if (str(curCart.cartID) == str(self.userDict[self.curUser].cartID)):
 				cartFound = True
-				curCart.itemList.append(sentItemName)
-				curCart.itemQuantList.append(sentQuant)
+				itemFound = False
+				for curItem in curCart.itemList:
+					if (str(curItem).upper() == str(sentItemName).upper()):
+						itemFound = True
+						curCart.itemQuantList[curCart.itemList.index(curItem)] += sentQuant
+				if (not itemFound):
+					curCart.itemList.append(sentItemName)
+					curCart.itemQuantList.append(sentQuant)
 		if (not cartFound):
 			self.userDict[self.curUser].cartID = int(random.random() * 9999)
 			self.cartList.append(Cart(self.userDict[self.curUser].cartID, [sentItemName], [sentQuant]))
 
-		print(str(sentQuant) + " " + str(sentItemName) + " has been added to cart" + str(self.userDict[self.curUser].cartID))
+		print(str(sentItemName) + " has been added!")
 
 	def RemoveItem(self, sentItemName, sentQuant):
 		itemFound = False
 		for curCart in self.cartList:
 			if (str(curCart.cartID) == str(self.userDict[self.curUser].cartID)):
-
 				for curItem in curCart.itemList:
 					if (str(curItem).upper() == str(sentItemName).upper()):
 						itemFound = True
 						itemInd = curCart.itemList.index(curItem)
-					curCart.itemQuantList[itemInd] = int(curCart.itemQuantList[itemInd]) - int(sentQuant)
-					if (curCart.itemQuantList[itemInd] <= 0):
-						sentQuant += curCart.itemQuantList[itemInd]
-						del curCart.itemList[itemInd]
-						del curCart.itemQuantList[itemInd]
+						curCart.itemQuantList[itemInd] = int(curCart.itemQuantList[itemInd]) - int(sentQuant)
+						if (curCart.itemQuantList[itemInd] <= 0):
+							sentQuant += curCart.itemQuantList[itemInd]
+							del curCart.itemList[itemInd]
+							del curCart.itemQuantList[itemInd]
 
 		if (not itemFound):
 			print("You don't have any of that item in your cart.\n")
