@@ -1,21 +1,26 @@
 #!/usr/bin/python3
 
-from model.User import *
-from model.Item import *
-from model.Order import *
-from model.Cart import *
+# from model.User import *
+# from model.Item import *
+# from model.Order import *
+# from model.Cart import *
+from controller.orderController import *
+from controller.userController import *
+from controller.itemController import *
 from utility.TestDBAccessor import *
 
 def LoginScreen():
 	if (DBReader.curUser != ""):
-		#log in
-		pass
+		DBReader.curUser = ""
+		print("\nYou are now logged out.\n")
 	else:
-		#log out
-		pass
+		unameInput = input("\nUsername: ")
+		passInput = input("Password: ")
+		DBReader.VerifyLogin(unameInput, passInput)
+		print()
 
 def ItemView():
-	pass
+	ItemController.PrintAllItems(DBReader)
 
 def AddItem():
 	pass
@@ -43,7 +48,7 @@ def main():
 		if (DBReader.curUser == ""):
 			tmpLoginStr = " (Requires login)"
 		print("Operations:")
-		if (DBReader.curUser != ""):
+		if (DBReader.curUser == ""):
 			print("  1. Log in")
 		else:
 			print("  1. Log out")
@@ -58,8 +63,15 @@ def main():
 		if (str(usrInput) == "1"):
 			LoginScreen()
 		elif (str(usrInput) == "2"):
-			#Print all items
-			pass
+			ItemView()
+		elif (str(usrInput) == "3"):
+			AddItem()
+		elif (str(usrInput) == "4"):
+			RemoveItem()
+		elif (str(usrInput) == "5"):
+			PurchaseView()
+		elif (str(usrInput) == "6"):
+			PurchaseHistView()
 		elif (str(usrInput) == "7"):
 			storeRunning = False
 		else:

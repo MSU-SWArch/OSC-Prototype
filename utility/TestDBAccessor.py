@@ -22,11 +22,13 @@ class DBAccessor():
 	def VerifyLogin(self, sentUser, sentPass):
 		try:
 			if (self.userDict[sentUser].password == sentPass):
+				self.curUser = sentUser
 				print(sentUser + " has logged in!")
 				return True
 			else:
 				return False
 		except:
+			print("Login failed.")
 			return False
 
 	def GetCurLogin(self):
@@ -63,8 +65,6 @@ class DBAccessor():
 					self.itemList.append(Clothes(lineList[1], lineList[2], lineList[3], lineList[4], lineList[5], lineList[6], lineList[7]))
 				else:
 					print("ERROR: Item type not known")
-
-		print("Loaded items:", self.itemList)
 			
 	def LoadUserData(self):
 		self.userDict.clear()

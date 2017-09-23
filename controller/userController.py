@@ -1,5 +1,5 @@
 #!/usr/bin/python
 
 class UserController():
-	def __init__(self):
+	def Login(sentUsername, sentPass):
 		pass
