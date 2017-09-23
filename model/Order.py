@@ -4,7 +4,7 @@ import datetime
 import model.User
 
 class Order():
-	def __init__(self,items, itemId, sentID):
+	def __init__(self, items, itemId, sentID):
 		self.transactionDate = now.day
 		self.items = items
 		self.itemId = itemId

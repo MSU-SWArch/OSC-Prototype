@@ -36,8 +36,7 @@ def main():
 
 	# Just testing for right now.
 	DBReader = DBAccessor("./TestData/testItems.txt", "./TestData/testUsers.txt", "./TestData/testCarts.txt", "./TestData/testOrders.txt")
-	DBReader.LoadUserData()
-	DBReader.LoadItemData()
+	DBReader.LoadAllData()
 
 	while(storeRunning):
 		tmpLoginStr = ""

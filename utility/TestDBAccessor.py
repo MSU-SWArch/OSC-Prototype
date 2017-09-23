@@ -20,10 +20,17 @@ class DBAccessor():
 		self.curUser = ""
 
 	def VerifyLogin(self, sentUser, sentPass):
-		for curUser in self.userList:
-			#if curUser.
-			pass
-		return False
+		try:
+			if (self.userDict[sentUser].password == sentPass):
+				print(sentUser + " has logged in!")
+				return True
+			else:
+				return False
+		except:
+			return False
+
+	def GetCurLogin(self):
+		return self.curUser
 
 	def AddUser(self, sentUsername, sentPassword):
 		pass
@@ -61,17 +68,23 @@ class DBAccessor():
 			
 	def LoadUserData(self):
 		self.userDict.clear()
-
 		self.userFile = open(self.userFileLoc, 'r').read().split('\n')
+
 		for curLine in self.userFile:
 			if (curLine != ""):
 				lineList = curLine.split('\\')
 				self.userDict[str(lineList[2])] = User(lineList[0], lineList[1], lineList[2], lineList[3], lineList[4], lineList[5], lineList[6], lineList[7])
 
 	def LoadCartData(self):
-		self.cartFile = open(self.cartFileLoc, 'r')
+		del self.cartList[:]
+		self.cartFile = open(self.cartFileLoc, 'r').read().split('\n')
 
-		self.cartFile.close()
+		for curLine in self.cartFile:
+			if (curLine != ""):
+				lineList = curLine.split('\\')
+				itemList = lineList[1].split(", ")
+				quantList = lineList[2].split(", ")
+				self.cartList.append(Cart(lineList[0], itemList, quantList))
 
 	def LoadOrderData(self):
 		self.orderFile = open(self.orderFileLoc, 'r')
@@ -82,23 +95,20 @@ class DBAccessor():
 
 	def SaveItemData(self):
 		self.itemFile = open(self.itemFileLoc, 'w')
-
 		for curItem in self.itemList:
 			self.itemFile.write(str(curItem) + "\n")
-
 		self.itemFile.close()
 
 	def SaveUserData(self):
 		self.userFile = open(self.userFileLoc, 'w')
-
 		for curKey in self.userDict:
 			self.userFile.write(str(self.userDict[curKey]) + "\n")
-
 		self.userFile.close()
 
 	def SaveCartData(self):
 		self.cartFile = open(self.cartFileLoc, 'w')
-
+		for curCart in self.cartList:
+			self.cartFile.write(str(curCart))
 		self.cartFile.close()
 
 	def SaveOrderData(self):
